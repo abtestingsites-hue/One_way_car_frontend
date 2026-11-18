@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   ONE WAY CAR DECORS — MATHEMATICAL DESIGN SYSTEM TOKENS (PHASE 2.1)
+   Base: 14px root, 8-Point Spacing Grid, Golden Ratio Modular Scaling
+   ========================================================================== */
+
+:root {
+  /* --- Typography Scale (Golden Ratio & Modular Snap) --- */
+  --font-page-title: 26px;     /* H1: Main Page Identity */
+  --font-section-title: 21px;  /* H2: Major Section Titles */
+  --font-card-title: 17px;     /* H3: Card / Modal Titles */
+  --font-sub-title: 15px;      /* H4: Subsection Titles */
+  --font-body: 14px;           /* Primary Body & Standard Text */
+  --font-table: 13px;          /* Table Body & Secondary Values */
+  --font-caption: 12px;        /* Supporting Info & Helper Text */
+  --font-micro: 11px;          /* Micro Badges & Meta Tags */
+
+  /* --- Standardized Component Heights --- */
+  --btn-height-sm: 32px;
+  --btn-height-md: 40px;
+  --btn-height-lg: 48px;
+  --input-height-md: 40px;
+  --input-height-sm: 32px;
+
+  /* --- 8-Point Spacing Grid Tokens --- */
+  --space-1: 4px;   /* Micro offset */
+  --space-2: 8px;   /* Tight element spacing */
+  --space-3: 16px;  /* Standard container & card padding */
+  --space-4: 24px;  /* Module grouping & inter-card gaps */
+  --space-5: 32px;  /* Major section separation */
+  --space-6: 40px;  /* Large page section separation */
+  --space-7: 48px;  /* Page header to content grid separation */
+  --space-8: 64px;  /* Major view separation */
+
+  /* --- Proportional Radii --- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+
+  /* --- Brand & Surface Tokens --- */
+  --brand-primary: #dc2626;     /* Automotive Red */
+  --brand-primary-hover: #b91c1c;
+  --brand-dark: #09090b;        /* Onyx Black */
+  --brand-dark-surface: #121214;
+  --surface-canvas: #f8fafc;
+  --surface-card: #ffffff;
+  --text-primary: #09090b;
+  --text-secondary: #64748b;
+  --border-default: #e2e8f0;
+  --border-subtle: #f1f5f9;
+}
+
+.dark {
+  --surface-canvas: #09090b;
+  --surface-card: #121214;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-default: #27272a;
+  --border-subtle: #18181b;
+}
+
+html {
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: var(--surface-canvas);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--surface-canvas);
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ==========================================================================
+   MATHEMATICALLY STANDARDIZED CORE COMPONENTS
+   ========================================================================== */
+
+/* Buttons - Exact Standardized Heights & Optical Alignment */
+.btn-enterprise-sm {
+  height: var(--btn-height-sm);
+  padding-left: 12px;
+  padding-right: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.15s ease-in-out;
+  line-height: 1;
+}
+
+.btn-enterprise-md {
+  height: var(--btn-height-md);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s ease-in-out;
+  line-height: 1;
+}
+
+.btn-enterprise-lg {
+  height: var(--btn-height-lg);
+  padding-left: 24px;
+  padding-right: 24px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--radius-lg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.15s ease-in-out;
+  line-height: 1;
+}
+
+/* Button Variants */
+.btn-primary {
+  background-color: var(--brand-primary);
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(220, 38, 38, 0.25);
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--brand-primary-hover);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.35);
+}
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-dark {
+  background-color: var(--brand-dark);
+  color: #ffffff;
+}
+.btn-dark:hover:not(:disabled) {
+  background-color: #1f2937;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: #334155;
+  border: 1px solid var(--border-default);
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+/* Form Inputs - Standard 40px Height */
+.input-enterprise-md {
+  height: var(--input-height-md);
+  padding-left: 12px;
+  padding-right: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  line-height: normal;
+}
+.input-enterprise-md:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.input-enterprise-sm {
+  height: var(--input-height-sm);
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 12px;
+  color: var(--text-primary);
+  background-color: var(--surface-card);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-default);
+}
+.input-enterprise-sm:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.12);
+}
+
+/* Standard Enterprise Card */
+.enterprise-card {
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Standard Enterprise Table System */
+.enterprise-table-header th {
+  height: 40px;
+  padding: 0 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background-color: var(--brand-dark);
+  color: #ffffff;
+  border-bottom: 1px solid #18181b;
+  vertical-align: middle;
+}
+
+.enterprise-table-row td {
+  height: 48px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1e293b;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.enterprise-table-row:hover td {
+  background-color: #f8fafc;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
